@@ -117,7 +117,7 @@ Windows
 ^^^^^^^
 
 Install `Python <https://www.python.org/downloads/windows/>`__,
-`PyQt5 <https://www.riverbankcomputing.com/software/pyqt/download5>`__
+`PyQt5 <https://pypi.org/project/PyQt5/>`__
 and `install lxml <http://lxml.de/installation.html>`__.
 
 Open cmd and go to the `labelImg <#labelimg>`__ directory
@@ -133,11 +133,13 @@ Open cmd and go to the `labelImg <#labelimg>`__ directory
 If you want to package it into a separate EXE file
 
 .. code:: shell
+    pyrcc4 -o libs/resources.py resources.qrc
+    For pyqt5, pyrcc5 -o libs/resources.py resources.qrc
 
     Install pyinstaller and execute:
 
     pip install pyinstaller
-    pyinstaller --hidden-import=pyqt5 --hidden-import=lxml -F -n "labelImg" -c labelImg.py -p ./libs -p ./
+    pyinstaller labelImg.spec 
 
 Windows + Anaconda
 ^^^^^^^^^^^^^^^^^^
